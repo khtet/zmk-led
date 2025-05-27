@@ -1,10 +1,9 @@
-#include "valyrian.dtsi" // The shared dtsi file is included in the overlay
+#include "valyrian.dtsi" 
 
 &default_transform {
     col-offset = <6>;
 };
 
-// Label of the kscan node in the dtsi
 &kscan0 {
     col-gpios
         = <&pro_micro 10 GPIO_ACTIVE_HIGH>
