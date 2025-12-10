@@ -14,8 +14,6 @@ if SHIELD_VALYRIAN_LEFT || SHIELD_VALYRIAN_RIGHT
 config ZMK_SPLIT
     default y
 
-endif
-
 if ZMK_DISPLAY
 
 config ZMK_DISPLAY
