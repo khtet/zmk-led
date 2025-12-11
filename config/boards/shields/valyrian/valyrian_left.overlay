@@ -28,17 +28,34 @@
     status = "okay";
 };
 
-&oled {
+/* --------------------------- */
+/*   DEFINE THE OLED NODE      */
+/* --------------------------- */
+
+&oled: ssd1306@3c {
     compatible = "solomon,ssd1306fb";
-    reg = <0x3C>;              /* I2C address */
+    reg = <0x3C>;
+    label = "DISPLAY";
+
     width = <128>;
     height = <32>;
+
     segment-offset = <0>;
     page-offset = <0>;
     display-offset = <0>;
-    multiplex-ratio = <31>;    /* 32px high → 0–31 */
+    multiplex-ratio = <31>;
+
     prechargep = <0x22>;
     com-pins = <0x02>;
-    reset-gpios = <&gpio0 29 0>; /* optional; remove if not wired */
+
+    /* Remove if no RESET pin */
+    /* reset-gpios = <&gpio0 29 GPIO_ACTIVE_LOW>; */
+
     i2c-bus = <&i2c0>;
+};
+
+/* Let Zephyr know this is the system display */
+&zephyr_display {
+    status = "okay";
+    display = <&oled>;
 };
