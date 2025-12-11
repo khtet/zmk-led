@@ -40,6 +40,18 @@
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
     clock-frequency = <I2C_BITRATE_FAST>;
+    oled: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3C>;
+        label = "DISPLAY";
+
+        width = <128>;
+        height = <32>;
+
+        multiplex-ratio = <31>;
+        prechargep = <0x22>;
+        com-pins = <0x02>;
+    };
 
     /* Nodes using the bus go here */
 };
