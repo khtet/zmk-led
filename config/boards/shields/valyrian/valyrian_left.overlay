@@ -50,21 +50,6 @@
         display-offset = <0>;
         multiplex-ratio = <31>;
         prechargep = <0x22>;
-
-        /* Optional but commonly used properties */
-        segment-remap;
-        com-invdir;
-        com-sequential;
-        inversion-on;
-        ready-time-ms = <10>;
-
-        com-pins = <0x02>;
-
-        /* Remove or uncomment if your panel has a reset GPIO */
-        /* reset-gpios = <&gpio0 29 GPIO_ACTIVE_LOW>; */
-
-        /* Keep reference to the bus (harmless if nested under &i2c0) */
-        i2c-bus = <&i2c0>;
     };
 
     /* Nodes using the bus go here */
