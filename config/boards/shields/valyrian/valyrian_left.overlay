@@ -14,8 +14,9 @@
 &i2c0 {
     status = "okay";
 
-    sda-pin = <&pro_micro 16 GPIO_ACTIVE_HIGH>;
-    scl-pin = <&pro_micro 15 GPIO_ACTIVE_HIGH>;
+    /* Use pinctrl for Zephyr 4.1 */
+    pinctrl-0 = <&i2c0_sda_pin &i2c0_scl_pin>;
+    pinctrl-names = "default";
 
     clock-frequency = <I2C_BITRATE_FAST>;
 
@@ -35,11 +36,18 @@
         prechargep = <0x22>;
         com-pins = <0x02>;
 
-        /* Remove if no RESET pin */
+        /* Optional reset pin */
         /* reset-gpios = <&gpio0 29 GPIO_ACTIVE_LOW>; */
-
-        i2c-bus = <&i2c0>;
     };
+};
+
+/* --- I2C Pin control nodes --- */
+&i2c0_sda_pin: pinctrl-i2c0-sda {
+    nordic,pins = <16 0>; /* pin 16, default config */
+};
+
+&i2c0_scl_pin: pinctrl-i2c0-scl {
+    nordic,pins = <15 0>; /* pin 15, default config */
 };
 
 &gpio0 {
