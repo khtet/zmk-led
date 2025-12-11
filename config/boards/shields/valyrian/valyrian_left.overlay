@@ -49,9 +49,3 @@
 &gpio1 {
     status = "okay";
 };
-
-/* Let Zephyr know this is the system display */
-&zephyr_display {
-    status = "okay";
-    display = <&oled>;
-};
