@@ -32,7 +32,7 @@
 /*   DEFINE THE OLED NODE      */
 /* --------------------------- */
 
-&oled: ssd1306@3c {
+oled: ssd1306@3c {
     compatible = "solomon,ssd1306fb";
     reg = <0x3C>;
     label = "DISPLAY";
